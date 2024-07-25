@@ -21,19 +21,28 @@ class MyThemeData {
       backgroundColor: AppColors.primaryColor,
       shape: StadiumBorder(
           side: BorderSide(color: AppColors.whiteColor, width: 4)),
-      // shape: RoundedRectangleBorder(
-      //   borderRadius: BorderRadius.circular(32),
-      //   side: BorderSide(
-      //     color: AppColors.whiteColor,
-      //     width: 4
-      //   ),
-      // ),
     ),
     textTheme: TextTheme(
-        titleLarge: GoogleFonts.poppins(
-      fontSize: 22,
-      fontWeight: FontWeight.bold,
-      color: AppColors.whiteColor,
-    )),
+      titleLarge: GoogleFonts.poppins(
+        fontSize: 22,
+        fontWeight: FontWeight.bold,
+        color: AppColors.whiteColor,
+      ),
+      titleMedium: GoogleFonts.poppins(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: AppColors.blackColor,
+      ),
+      titleSmall: GoogleFonts.inter(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: AppColors.blackColor,
+      ),
+      bodySmall: GoogleFonts.inter(
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+        color: AppColors.blackColor,
+      ),
+    ),
   );
 }

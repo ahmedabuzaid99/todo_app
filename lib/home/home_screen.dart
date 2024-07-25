@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/app_colors.dart';
+import 'package:todo_app/settings/Settings_list_tab.dart';
+import 'package:todo_app/task_list/add_task_bottom_sheet.dart';
+import 'package:todo_app/task_list/task_list_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "home_screen";
@@ -19,8 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "To Do List",
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        //toolbarHeight: MediaQuery.of(context).size.height*0.18
-      ),
+          toolbarHeight: MediaQuery.of(context).size.height * 0.18),
       bottomNavigationBar: BottomAppBar(
         padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).size.height * 0.0001),
@@ -40,7 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          addTaskBottomSheet();
+        },
         child: Icon(
           Icons.add,
           color: AppColors.whiteColor,
@@ -48,15 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: Column(
-        children: [
-          Container(
-            color: AppColors.primaryColor,
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.18,
-          )
-        ],
-      ),
+      body: selectedIndex == 0 ? TaskListTab() : SettingsListTab(),
     );
+  }
+
+  void addTaskBottomSheet() {
+    showModalBottomSheet(
+        context: context, builder: (context) => AddTaskBottomSheet());
   }
 }
